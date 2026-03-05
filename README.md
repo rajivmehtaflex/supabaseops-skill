@@ -4,7 +4,30 @@ A Claude Code skill that provides expert guidance for Supabase CLI operations. W
 
 ## Install
 
-Copy the skill files into your Claude skills directory:
+### Remote install (from GitHub)
+
+```bash
+mkdir -p ~/.claude/skills/supabaseops/references && \
+curl -sL https://raw.githubusercontent.com/rajivmehtaflex/supabaseops-skill/main/SKILL.md -o ~/.claude/skills/supabaseops/SKILL.md && \
+curl -sL https://raw.githubusercontent.com/rajivmehtaflex/supabaseops-skill/main/references/cli-map.md -o ~/.claude/skills/supabaseops/references/cli-map.md
+```
+
+Or with `wget`:
+
+```bash
+mkdir -p ~/.claude/skills/supabaseops/references && \
+wget -qO ~/.claude/skills/supabaseops/SKILL.md https://raw.githubusercontent.com/rajivmehtaflex/supabaseops-skill/main/SKILL.md && \
+wget -qO ~/.claude/skills/supabaseops/references/cli-map.md https://raw.githubusercontent.com/rajivmehtaflex/supabaseops-skill/main/references/cli-map.md
+```
+
+### Verify install
+
+```bash
+ls ~/.claude/skills/supabaseops/
+# Should show: SKILL.md  references/
+```
+
+### Manual install (if you have the repo cloned)
 
 ```bash
 mkdir -p ~/.claude/skills/supabaseops/references
