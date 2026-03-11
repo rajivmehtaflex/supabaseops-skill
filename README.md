@@ -1,23 +1,46 @@
-# supabaseops skill for Claude Code
+# Supabase Operations Skill
 
-A Claude Code skill that provides expert guidance for Supabase CLI operations. When installed, Claude will automatically use this skill whenever you mention Supabase — covering local dev setup, database migrations, edge functions, secrets management, type generation, storage, and remote project management. The skill includes a prerequisites check flow to ensure authentication and project linking are handled correctly before any command runs.
+A portable agent skill for Supabase CLI operations. It is packaged in the universal `.agents/skills` layout so it can be reused by tools that follow the shared skill convention, including `skills.sh`-compatible tooling.
+
+## Repository Layout
+
+```text
+.agents/
+  skills/
+    supabaseops/
+      SKILL.md
+      references/
+      evals/
+```
+
+The canonical installable skill folder in this repo is `.agents/skills/supabaseops/`.
 
 ## Install
+
+### Universal install
+
+Copy `.agents/skills/supabaseops` into your agent's skills directory.
+
+Examples:
+
+- Claude Code: `~/.claude/skills/supabaseops`
+- Codex: `~/.codex/skills/supabaseops`
+- Any `skills.sh`-compatible tool: its configured skills directory
 
 ### Remote install (from GitHub)
 
 ```bash
 mkdir -p ~/.claude/skills/supabaseops/references && \
-curl -sL https://raw.githubusercontent.com/rajivmehtaflex/supabaseops-skill/main/SKILL.md -o ~/.claude/skills/supabaseops/SKILL.md && \
-curl -sL https://raw.githubusercontent.com/rajivmehtaflex/supabaseops-skill/main/references/cli-map.md -o ~/.claude/skills/supabaseops/references/cli-map.md
+curl -sL https://raw.githubusercontent.com/rajivmehtaflex/supabaseops-skill/main/.agents/skills/supabaseops/SKILL.md -o ~/.claude/skills/supabaseops/SKILL.md && \
+curl -sL https://raw.githubusercontent.com/rajivmehtaflex/supabaseops-skill/main/.agents/skills/supabaseops/references/cli-map.md -o ~/.claude/skills/supabaseops/references/cli-map.md
 ```
 
 Or with `wget`:
 
 ```bash
 mkdir -p ~/.claude/skills/supabaseops/references && \
-wget -qO ~/.claude/skills/supabaseops/SKILL.md https://raw.githubusercontent.com/rajivmehtaflex/supabaseops-skill/main/SKILL.md && \
-wget -qO ~/.claude/skills/supabaseops/references/cli-map.md https://raw.githubusercontent.com/rajivmehtaflex/supabaseops-skill/main/references/cli-map.md
+wget -qO ~/.claude/skills/supabaseops/SKILL.md https://raw.githubusercontent.com/rajivmehtaflex/supabaseops-skill/main/.agents/skills/supabaseops/SKILL.md && \
+wget -qO ~/.claude/skills/supabaseops/references/cli-map.md https://raw.githubusercontent.com/rajivmehtaflex/supabaseops-skill/main/.agents/skills/supabaseops/references/cli-map.md
 ```
 
 ### Verify install
@@ -31,8 +54,8 @@ ls ~/.claude/skills/supabaseops/
 
 ```bash
 mkdir -p ~/.claude/skills/supabaseops/references
-cp SKILL.md ~/.claude/skills/supabaseops/SKILL.md
-cp references/cli-map.md ~/.claude/skills/supabaseops/references/cli-map.md
+cp .agents/skills/supabaseops/SKILL.md ~/.claude/skills/supabaseops/SKILL.md
+cp .agents/skills/supabaseops/references/cli-map.md ~/.claude/skills/supabaseops/references/cli-map.md
 ```
 
 ## Example prompts
@@ -50,6 +73,6 @@ Once installed, Claude will use this skill automatically. Try:
 
 ## Contents
 
-- `SKILL.md` — skill definition loaded by Claude Code
-- `references/cli-map.md` — full Supabase CLI command reference
-- `evals/evals.json` — evaluation prompts used to test the skill (100% pass rate on iteration 1)
+- `.agents/skills/supabaseops/SKILL.md` — skill definition loaded by supported agents
+- `.agents/skills/supabaseops/references/cli-map.md` — full Supabase CLI command reference
+- `.agents/skills/supabaseops/evals/evals.json` — evaluation prompts used to test the skill
