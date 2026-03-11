@@ -17,6 +17,16 @@ The canonical installable skill folder in this repo is `.agents/skills/supabaseo
 
 ## Install
 
+### skills.sh install
+
+If you use the `skills.sh` ecosystem, install directly from GitHub:
+
+```bash
+npx skills add https://github.com/rajivmehtaflex/supabaseops-skill --skill supabaseops
+```
+
+This resolves the skill from `.agents/skills/supabaseops` in this repository.
+
 ### Universal install
 
 Copy `.agents/skills/supabaseops` into your agent's skills directory.
@@ -57,6 +67,18 @@ mkdir -p ~/.claude/skills/supabaseops/references
 cp .agents/skills/supabaseops/SKILL.md ~/.claude/skills/supabaseops/SKILL.md
 cp .agents/skills/supabaseops/references/cli-map.md ~/.claude/skills/supabaseops/references/cli-map.md
 ```
+
+## Prerequisites
+
+Installing the skill into an agent is separate from having the OS tools required to run the Supabase commands the skill suggests.
+
+- `Node.js` and `npm`: needed if you install skills via `npx skills add ...`.
+- `Supabase CLI` (`supabase`): required for all Supabase workflows in this skill.
+- `Supabase account`: required for remote project access.
+- Authenticated Supabase session: run `supabase login` before remote operations.
+- Docker Desktop or Docker Engine: required for local container workflows such as `supabase start`.
+- `Git`: recommended for clone-based install flows and normal project workflows.
+- Project-specific runtime tools: your app may still need its own language/framework toolchain in addition to the Supabase CLI.
 
 ## Example prompts
 
